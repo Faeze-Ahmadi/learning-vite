@@ -11,7 +11,12 @@ type BoxProps = {
 const Box = (props: BoxProps) => {
   console.log(props.attr);
   const el = document.createElement(props.element);
-  el.className = props.attr?.className;
+  
+  Object.keys(props.attr).forEach((key: string) => {
+    el[key] = props.attr[key]
+  })
+  
+  
   if (!Array.isArray(props.children)) el.append(props.children!);
   else el.append(...props.children);
   return el;
@@ -24,7 +29,9 @@ app!.append(
   Box({
     element: "ul", 
     attr: {
-      className: "bg-pink-500"
+      className: "bg-pink-500",
+      id: "1000",
+      style: "test"
     },
     children: Box({ element: "li", children: "link" })
   })
