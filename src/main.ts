@@ -12,6 +12,7 @@ const Box = (props: BoxProps) => {
   console.log(props.attr);
   const el = document.createElement(props.element);
   
+  if(props.attr)
   Object.keys(props.attr).forEach((key: string) => {
     el[key] = props.attr[key]
   })
@@ -33,6 +34,6 @@ app!.append(
       id: "1000",
       style: "test"
     },
-    children: Box({ element: "li", children: "link" })
+    children: Box({ element: "li", attr: {className: "text-slate-100"}, children: "link" })
   })
 );
