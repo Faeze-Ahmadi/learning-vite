@@ -21,6 +21,9 @@ type BoxProps = {
 
 const Box = (props: BoxProps) => {
   const el = document.createElement(props.element);
+  const span = document.createElement("span");
+  span.innerHTML = "hello vite";
+  el.append(span, "gf", "hg")
   return el;
 };
 
